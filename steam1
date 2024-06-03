@@ -1,0 +1,12 @@
+import steam.webauth as wa
+
+username = 'Your_Steam_Username'
+password = 'Your_Steam_Password'
+
+client = wa.SteamClient()
+
+client.login(username, password)
+
+user_info = client.get_web_session().get('https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=YOUR_API_KEY&steamids=YOUR_STEAM_ID')
+
+print(user_info.json())
